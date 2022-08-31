@@ -1,0 +1,46 @@
+.strip_articels {
+    /* color need to be first  */
+    min-height: 450px;
+    /* background: silver; */
+    background-size:cover ;
+  background-position: center center;
+  
+   
+  
+}
+.strip_articels h2{
+    color: brown;
+    text-shadow: 2px 2px 0px #FFFFFF, 5px 4px 0px rgba(0,0,0,0.15), 2px 2px 5px rgba(211,39,9,0);
+}
+.categories_list a{
+    text-decoration: none;
+
+}
+
+.categories_list a > div{
+transition: 400ms;
+
+}
+
+.categories_list a:hover > div{
+/* border: rgb(200, 50, 50) 2px solid; */
+box-sizing: border-box;
+transform:scale(1.04,1.04);
+}
+
+.categories_list .myCard .img_card{
+    min-height: 150px;
+    /* background: slategray; */
+    background-size:cover ;
+    background-position: center center;
+}
+.strip {
+    /* color need to be first  */
+    min-height: 250px;
+    /* background: silver; */
+    background-size:cover ;
+  background-position: center center;
+  
+   
+  
+}

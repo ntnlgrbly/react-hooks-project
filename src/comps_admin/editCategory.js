@@ -1,0 +1,77 @@
+import React, { useEffect, useState } from 'react'
+import { useForm } from "react-hook-form"
+import { useNavigate, useParams } from 'react-router-dom';
+import { toast } from 'react-toastify';
+import AuthAdminComp from '../misc_comps/authAdminComp'
+import { API_URL, doApiGet, doApiMethod } from '../services/apiService'
+
+function EditCategory(props) {
+    let [category, setCategory] = useState({})
+    let [btnSend, setBtnSend] = useState(false);
+    let params = useParams();
+
+    let nav = useNavigate()
+    let { register, handleSubmit, formState: { errors } } = useForm();
+
+    let nameRef = register("name", { required: true, minLengt: 2, maxLength: 99 })
+    let url_nameRef = register("url_name", { required: true, minLengt: 2, maxLength: 500 })
+    let img_urlRef = register("img_url", { required: true, minLengt: 2, maxLength: 500 })
+
+    useEffect(() => {
+        doApi();
+    }, [])
+    const doApi = async () => {
+        let urlProduct = API_URL + "/categories/single/" + params.url_name;
+        let resp2 = await doApiGet(urlProduct);
+        console.log(resp2.data)
+        setCategory(resp2.data);
+    }
+    const onSubForm = (formData) => {
+        // console.log(formData);
+        setBtnSend(true);
+        doFormApi(formData);
+    }
+
+    const doFormApi = async (formData) => {
+        let url = API_URL + "/categories/" + category._id;
+        try {
+            let resp = await doApiMethod(url, "PUT", formData);
+            console.log(resp.data);
+            if (resp.data.modifiedCount) {
+                toast.success("Categories updated");
+                nav("/admin/categories")
+            }
+            else {
+                toast.warning("you not change nothing");
+
+            }
+        }
+        catch (err) {
+            console.log(err.response);
+            alert("There problem try again leter")
+
+        }
+    }
+    return (
+        <div className='container'>
+            <AuthAdminComp />
+            <h1>Edit  category</h1>
+            {(category._id) ?
+                <form onSubmit={handleSubmit(onSubForm)} className='col-md-6 p-3 shadow'>
+                    <label>Name:</label>
+                    <input defaultValue={category.name} {...nameRef} type="text" className='form-control' />
+                    {errors.name ? <small className='text-danger d-block'>* Enter valid name 2 to 99</small> : ""}
+                    <label>url name:</label>
+                    <input defaultValue={category.url_name} {...url_nameRef} type="text" className='form-control' />
+                    {errors.url_name ? <small className='text-danger d-block'>* Enter valid url_name 2 to 500</small> : ""}
+                    <label>Img url:</label>
+                    <input defaultValue={category.img_url} {...img_urlRef} type="text" className='form-control' />
+                    {errors.img_url ? <small className='text-danger d-block'>* Enter valid url_name 2 to 500</small> : ""}
+
+                    <button className='mt-4 btn btn-warning' disabled={btnSend}> update new category</button>
+                </form> : <h2>Loading...</h2>}
+        </div>
+    )
+}
+
+export default EditCategory

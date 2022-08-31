@@ -1,0 +1,22 @@
+.header_admin nav a{
+
+    color:white;
+    text-decoration: none;
+    padding: 0 12px;
+}
+
+.header_admin nav a:hover{
+    color: rgb(227, 75, 75);
+}
+.header_admin .btn_loguot {
+    margin-top: 1px;
+    height: 30px;
+    color: black;
+    background: rgb(208, 35, 35);
+     font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif
+}
+.textProduct{
+     min-height: 20px; 
+    font-family: 'Montserrat', sans-serif;
+    /* color: aqua; */
+}

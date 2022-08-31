@@ -1,0 +1,22 @@
+.strip_home{
+    /* color need to be first  */
+    min-height: 550px;
+    background: rgb(255, 254, 254);
+    background-size:cover ;
+  background-position: center center;
+   
+   
+  
+}
+h2{
+color: rgb(182, 10, 10);
+font-weight: 20px;
+font-family:'Times New Roman', Times, serif;
+font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+h3{
+color: rgb(235, 71, 71);
+
+font-family: Georgia, 'Times New Roman', Times, serif;
+}

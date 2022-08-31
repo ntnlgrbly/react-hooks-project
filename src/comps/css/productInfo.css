@@ -1,0 +1,27 @@
+body{
+    background: rgb(255, 255, 255);
+}
+
+.h2_info{
+    color: rgb(233, 82, 82);
+    text-align: start;
+    font-weight: 15px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+
+
+}
+.h3_info{
+    color: rgb(253, 96, 96);
+    /* background: #6e6e6e; */
+    font-family: 'Montserrat', sans-serif;
+    font-family: 'Oleo Script Swash Caps', cursive;
+    font-family: 'Roboto', sans-serif;
+    font-size: 25px;
+text-align: center;
+text-shadow: 1px 1px 2px pink;
+}
+
+.div_text{
+    font-size: 22px;
+    /* box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px; */
+}
